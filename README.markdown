@@ -8,7 +8,7 @@ blabla escribri descripcion
 
 ## Instalación
 
-ANTLR is really two things: a tool that translates your grammar to a parser/lexer in Java (or other target language) and the runtime needed by the generated parsers/lexers. Even if you are using the ANTLR Intellij plug-in or ANTLRWorks to run the ANTLR tool, the generated code will still need the runtime library. 
+ANTLR is really two things: a tool that translates your grammar to a parser/lexer in Java (or other target language) and the runtime needed by the generated parsers/lexers. Even if you are using the ANTLR Intellij plug-in or ANTLRWorks to run the ANTLR tool, the generated code will still need the runtime library.
 
 The first thing you should do is probably download and install a development tool plug-in. Even if you only use such tools for editing, they are great. Then, follow the instructions below to get the runtime environment available to your system to run generated parsers/lexers.  In what follows, I talk about antlr-4.5.3-complete.jar, which has the tool and the runtime and any other support libraries (e.g., ANTLR v4 is written in v3).
 
@@ -41,12 +41,16 @@ $ alias grun='java org.antlr.v4.gui.TestRig'
 
 (*Thanks to Graham Wideman*)
 
-0. Install Java (version 1.6 or higher)
-1. Download antlr-4.5.3-complete.jar (or whatever version) from [http://www.antlr.org/download/](http://www.antlr.org/download/)
-Save to your directory for 3rd party Java libraries, say `C:\Javalib`
-2. Add `antlr-4.5-complete.jar` to CLASSPATH, either:
-  * Permanently: Using System Properties dialog > Environment variables > Create or append to `CLASSPATH` variable
-  * Temporarily, at command line:
+0. Instalar Java SE Development Kit 8u121(version 1.6 o superior) desde [http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+  * Considerar que el destino de ubicación(Drive) debe ser el mismo que el del sistema operativo.
+1. Descargar antlr-4.6-complete.jar (or whatever version) from [http://www.antlr.org/download/](http://www.antlr.org/download/)
+Guardar en el directorio para librerias de terceros, como: `C:\Javalib`
+2. Añadir `antlr-4.6-complete.jar` al CLASSPATH, de forma:
+  * Permanente: Presionar el boton de Start, escrbir y elegir  "Cuentas de Usuario" en la barra de búsqueda > Cambiar variables de entorno >.
+  ![](images/antlr2.1.png)
+Using System Properties dialog > Environment variables > Create or append to `CLASSPATH` variable
+![](images/hello-parrt.png)
+  * Temporal con el comando, at command line:
 ```
 SET CLASSPATH=.;C:\Javalib\antlr-4.5.3-complete.jar;%CLASSPATH%
 ```
@@ -134,4 +138,3 @@ The book has lots and lots of examples that should be useful to. You can downloa
 Also, there is a large collection of grammars for v4 at github:
 
 [https://github.com/antlr/grammars-v4](https://github.com/antlr/grammars-v4)
-
