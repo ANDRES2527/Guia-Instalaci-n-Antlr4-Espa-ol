@@ -4,11 +4,10 @@ This guide will show you how to install Antlr4 a powerful parser generator on al
 Es la nueva versión de ANTLR4 una mejora de las versiones antiguas es el hecho de poder escribir gramaticas mas naturales y estandarizadas como lo realiza yacc! Mira [prefacio del libro de ANTLR v4](http://media.pragprog.com/titles/tpantlr2/preface.pdf) como una guía mas detallada.
 
 ## Descripción
-blabla escribri descripcion
-
+ANTLR is really two things: a tool that translates your grammar to a parser/lexer in Java (or other target language) and the runtime needed by the generated parsers/lexers. Even if you are using the ANTLR Intellij plug-in or ANTLRWorks to run the ANTLR tool, the generated code will still need the runtime library.
+ANTLR es realmente dos cosas: una herramienta que traduce una gramatica a un parser/lexer en JAVA ()
 ## Instalación
 
-ANTLR is really two things: a tool that translates your grammar to a parser/lexer in Java (or other target language) and the runtime needed by the generated parsers/lexers. Even if you are using the ANTLR Intellij plug-in or ANTLRWorks to run the ANTLR tool, the generated code will still need the runtime library. 
 
 The first thing you should do is probably download and install a development tool plug-in. Even if you only use such tools for editing, they are great. Then, follow the instructions below to get the runtime environment available to your system to run generated parsers/lexers.  In what follows, I talk about antlr-4.5.3-complete.jar, which has the tool and the runtime and any other support libraries (e.g., ANTLR v4 is written in v3).
 
@@ -134,4 +133,3 @@ The book has lots and lots of examples that should be useful to. You can downloa
 Also, there is a large collection of grammars for v4 at github:
 
 [https://github.com/antlr/grammars-v4](https://github.com/antlr/grammars-v4)
-
