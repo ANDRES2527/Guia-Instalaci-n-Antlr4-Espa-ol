@@ -50,9 +50,9 @@ $ alias grun='java org.antlr.v4.gui.TestRig'
 Guardar en el directorio para librerias de terceros, como: `C:\Javalib`
 2. Añadir `antlr-4.6-complete.jar` al PATH, de la siguiente manera:
   * Ir a  "Cuentas de Usuario"> Cambiar las variables de entorno.
-  ![](images/antlr2.png)
+  ![](images/antlr2.PNG)
   * Crear o añadir una variable `PATH` para antlr `C:\Javalib\antlr-4.6.complete.jar` y para el jdk `C:\Program Files\jdk.1.8.0_111\bin`
-![](images/antlr3.png)
+![](images/antlr3.PNG)
 
 3. Crear atajos para los comandos de las herramientas ATNRL y TestRig, usandos archivos batch o comandos doskey:
   * Archivo batch con el siguiente contenido (en el mismo direcorio agregado de 'PATH) `antlr4.bat`
@@ -63,7 +63,7 @@ java org.antlr.v4.Tool %*
 ```
 java org.antlr.v4.gui.TestRig %*
 ```
-![](images/antlr4.png)
+![](images/antlr4.PNG)
   * O, usando comandos doskey:
 ```
 doskey antlr4=java org.antlr.v4.Tool $*
@@ -85,7 +85,7 @@ ANTLR Parser Generator Version 4.6
 -lib ___ specify location of .tokens files
 ...
 ```
-![](images/antlr5.png)
+![](images/antlr5.PNG)
 * En la misma  carpeta `CLASSPATH` colocar la siguiente gramática dentro de un archivo `Hello.g4`:
 
 ```
@@ -117,10 +117,10 @@ $ grun Hello r -gui
 hello parrt
 ^Z
 ```
-![](images/antlr6.png)
+![](images/antlr6.PNG)
 Esto genera una ventana que muestra la regla `r` unida a la palabra clave `hello` seguida del identificador `parrt`.
 
-![](images/antlr7.png)
+![](images/antlr7.PNG)
 
 ### Probando la instalación
 
