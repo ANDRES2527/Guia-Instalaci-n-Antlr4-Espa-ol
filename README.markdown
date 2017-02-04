@@ -144,6 +144,7 @@ ANTLR Parser Generator Version 4.6
 ...
 ```
 ![](images/Instalacionunix2.png)
+
 ## Un primer ejemplo
 
 En un directorio temporal, colocar la siguiente gramática dentro de un archivo llamado Hello.g4:
