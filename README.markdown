@@ -1,53 +1,60 @@
 # Guia-Instalación-Antlr4- v4 Español
-This guide will show you how to install Antlr4 a powerful parser generator on all platforms.
+Esta guia te mostrará como instalar Antlr4 un potente generador de parser para todas las plataformas.
 
-Es la nueva versión de ANTLR4 una mejora de las versiones antiguas es el hecho de poder escribir gramaticas mas naturales y estandarizadas como lo realiza yacc! Mira [prefacio del libro de ANTLR v4](http://media.pragprog.com/titles/tpantlr2/preface.pdf) como una guía mas detallada.
+Es la nueva versión de ANTLR una mejora de las versiones antiguas es el hecho de poder escribir gramaticas mas naturales y estandarizadas como lo realiza yacc! Mira [prefacio del libro de ANTLR v4](http://media.pragprog.com/titles/tpantlr2/preface.pdf) como una guía mas detallada.
 
 ## Descripción
-ANTLR is really two things: a tool that translates your grammar to a parser/lexer in Java (or other target language) and the runtime needed by the generated parsers/lexers. Even if you are using the ANTLR Intellij plug-in or ANTLRWorks to run the ANTLR tool, the generated code will still need the runtime library.
-ANTLR es realmente dos cosas: una herramienta que traduce una gramatica a un parser/lexer en JAVA ()
+
+ANTLR es realmente dos cosas: una herramienta que traduce su gramática a un parser/lexer en Java (u otro lenguaje de programación) y las rutinas necesarias para los analizadores / lexers generados. Incluso si está utilizando el complemento ANTLR Intellij o ANTLRWorks para ejecutar la herramienta ANTLR, el código generado seguirá necesitando la biblioteca con las rutinas.
+
 ## Instalación
 
 
-The first thing you should do is probably download and install a development tool plug-in. Even if you only use such tools for editing, they are great. Then, follow the instructions below to get the runtime environment available to your system to run generated parsers/lexers.  In what follows, I talk about antlr-4.5.3-complete.jar, which has the tool and the runtime and any other support libraries (e.g., ANTLR v4 is written in v3).
-
-If you are going to integrate ANTLR into your existing build system using mvn, ant, or want to get ANTLR into your IDE such as eclipse or intellij, see Integrating ANTLR into Development Systems.
+Antes de comenzar con la instalación es necesario descargar lo siguiente:
+<br>
+Java JDK [http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+<br>
+antlr-4.5.3-complete.jar [http://www.antlr.org/download.html](http://www.antlr.org/download.html)
 
 
 ### UNIX
 
-0. Install Java (version 1.6 or higher)
-1. Download
+0. Instalar Java JDK (versión 1.6 o superior)
+1. Descargar
 ```
-$ cd /usr/local/lib
-$ curl -O http://www.antlr.org/download/antlr-4.5.3-complete.jar
+$ cd /Users/tu_Usuario/Library
+$ curl -O http://www.antlr.org/download/antlr-4.6-complete.jar
 ```
-Or just download in browser from website:
+O descargalo desde el navegador desde:
     [http://www.antlr.org/download.html](http://www.antlr.org/download.html)
-and put it somewhere rational like `/usr/local/lib`.
-2. Add `antlr-4.5.3-complete.jar` to your `CLASSPATH`:
+y ponlo en algun lugar racional como `/Users/tu_Usuario/Library`.
+2. Agrega `antlr-4.6-complete.jar` a tu `CLASSPATH`:
 ```
-$ export CLASSPATH=".:/usr/local/lib/antlr-4.5.3-complete.jar:$CLASSPATH"
+$ export CLASSPATH=".:/Users/Library/antlr-4.6-complete.jar:$CLASSPATH"
 ```
-It's also a good idea to put this in your `.bash_profile` or whatever your startup script is.
-3. Create aliases for the ANTLR Tool, and `TestRig`.
+
+3. Create alias para ANTLR, y para `TestRig`.
 ```
 $ alias antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.5.3-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
 $ alias grun='java org.antlr.v4.gui.TestRig'
 ```
+![](images/Instalacionunix.png)
 
 ### WINDOWS
 
-(*Thanks to Graham Wideman*)
 
-0. Install Java (version 1.6 or higher)
-1. Download antlr-4.5.3-complete.jar (or whatever version) from [http://www.antlr.org/download/](http://www.antlr.org/download/)
-Save to your directory for 3rd party Java libraries, say `C:\Javalib`
-2. Add `antlr-4.5-complete.jar` to CLASSPATH, either:
-  * Permanently: Using System Properties dialog > Environment variables > Create or append to `CLASSPATH` variable
-  * Temporarily, at command line:
+0. Instalar Java SE Development Kit 8u121(version 1.6 o superior) desde [http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+  * Considerar que el destino de ubicación(Drive) debe ser el mismo que el del sistema operativo.
+1. Descargar antlr-4.6-complete.jar (or whatever version) from [http://www.antlr.org/download/](http://www.antlr.org/download/)
+Guardar en el directorio para librerias de terceros, como: `C:\Javalib`
+2. Añadir `antlr-4.6-complete.jar` al CLASSPATH, de forma:
+  * Permanente: Presionar el boton de Start, escrbir y elegir  "Cuentas de Usuario" en la barra de búsqueda > Cambiar variables de entorno >.
+  ![](images/antlr2.1.png)
+Using System Properties dialog > Environment variables > Create or append to `CLASSPATH` variable
+![](images/hello-parrt.png)
+  * Temporal con el comando, at command line:
 ```
-SET CLASSPATH=.;C:\Javalib\antlr-4.5.3-complete.jar;%CLASSPATH%
+SET CLASSPATH=.;C:\Javalib\antlr-4.6-complete.jar;%CLASSPATH%
 ```
 3. Create short convenient commands for the ANTLR Tool, and TestRig, using batch files or doskey commands:
   * Batch files (in directory in system PATH) antlr4.bat and grun.bat
@@ -63,32 +70,31 @@ doskey antlr4=java org.antlr.v4.Tool $*
 doskey grun =java org.antlr.v4.gui.TestRig $*
 ```
 
-### Testing the installation
+### Probando la instalación
 
-Either launch org.antlr.v4.Tool directly:
+La primera forma es poniendo el comando org.antlr.v4.Tool directamente:
 
 ```
 $ java org.antlr.v4.Tool
-ANTLR Parser Generator Version 4.5.3
+ANTLR Parser Generator Version 4.6
 -o ___ specify output directory where all output is generated
 -lib ___ specify location of .tokens files
 ...
 ```
 
-or use -jar option on java:
+o usa la opción -jar en java:
 
 ```
-$ java -jar /usr/local/lib/antlr-4.5.3-complete.jar
-ANTLR Parser Generator Version 4.5.3
+$ java -jar /Users/Library/antlr-4.6-complete.jar
+ANTLR Parser Generator Version 4.6
 -o ___ specify output directory where all output is generated
 -lib ___ specify location of .tokens files
 ...
 ```
+![](images/Instalacionunix2.png)
+## Un primer ejemplo
 
-## A First Example
-
-In a temporary directory, put the following grammar inside file Hello.g4:
-Hello.g4
+En un directorio temporal, colocar la siguiente gramática dentro de un archivo llamado Hello.g4:
 
 ```
 // Define a grammar called Hello
@@ -98,15 +104,15 @@ ID : [a-z]+ ;             // match lower-case identifiers
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
 ```
 
-Then run ANTLR the tool on it:
+Ahora corre la herramienta ANTLR:
 
 ```
 $ cd /tmp
 $ antlr4 Hello.g4
 $ javac Hello*.java
 ```
-
-Now test it:
+![](images/Instalacionunix3.png)
+Ahora lo probaremos:
 
 ```
 $ grun Hello r -tree
@@ -119,17 +125,17 @@ $ grun Hello r -gui
 hello parrt
 ^D
 ```
+![](images/Instalacionunix5.png)
+Esto genera una ventana qye muestra la regle `r` unida a la palabra clave `hello` seguida del identificador `parrt`.
 
-That pops up a dialog box showing that rule `r` matched keyword `hello` followed by identifier `parrt`.
+![](images/Instalacionunix4.png)
 
-![](images/hello-parrt.png)
+## Libro con codigo fuente
 
-## Book source code
-
-The book has lots and lots of examples that should be useful to. You can download them here for free:
+El libro posee muchos ejemplos que podrian ser utiles. Puedes descargarlos gratis de:
 
 [http://pragprog.com/titles/tpantlr2/source_code](http://pragprog.com/titles/tpantlr2/source_code)
 
-Also, there is a large collection of grammars for v4 at github:
+Tambien, en este repositorio de github hay una larga colección de gramaticas para la version 4:
 
 [https://github.com/antlr/grammars-v4](https://github.com/antlr/grammars-v4)
