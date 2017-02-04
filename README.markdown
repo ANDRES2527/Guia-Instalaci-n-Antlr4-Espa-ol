@@ -49,7 +49,7 @@ $ alias grun='java org.antlr.v4.gui.TestRig'
 Guardar en el directorio para librerias de terceros, como: `C:\Javalib`
 2. Añadir `antlr-4.6-complete.jar` al CLASSPATH, de forma:
   * Permanente: Presionar el boton de Start, escrbir y elegir  "Cuentas de Usuario" en la barra de búsqueda > Cambiar variables de entorno >.
-  ![](images/antlr2.1.png)
+  ![](images/antlr2.1.PNG)
 Using System Properties dialog > Environment variables > Create or append to `CLASSPATH` variable
 ![](images/hello-parrt.png)
   * Temporal con el comando, at command line:
