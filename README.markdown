@@ -122,7 +122,7 @@ Esto genera una ventana que muestra la regla `r` unida a la palabra clave `hello
 
 ![](images/antlr7.PNG)
 
-### Probando la instalación
+### Probando la instalación UNIX
 
 La primera forma es poniendo el comando org.antlr.v4.Tool directamente:
 
@@ -145,43 +145,144 @@ ANTLR Parser Generator Version 4.6
 ```
 ![](images/Instalacionunix2.png)
 
-## Un primer ejemplo
+## Un primer ejemplo UNIX gramática JSON
 
-En un directorio temporal, colocar la siguiente gramática dentro de un archivo llamado Hello.g4:
+En un directorio temporal, colocar la siguiente gramática dentro de un archivo llamado JSON.g4:
 
 ```
-// Define a grammar called Hello
-grammar Hello;
-r  : 'hello' ID ;         // match keyword hello followed by an identifier
-ID : [a-z]+ ;             // match lower-case identifiers
-WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
+/** Taken from "The Definitive ANTLR 4 Reference" by Terence Parr */
+
+// Derived from http://json.org
+grammar JSON;
+
+json
+   : value
+   ;
+
+obj
+   : '{' pair (',' pair)* '}'
+   | '{' '}'
+   ;
+
+pair
+   : STRING ':' value
+   ;
+
+array
+   : '[' value (',' value)* ']'
+   | '[' ']'
+   ;
+
+value
+   : STRING
+   | NUMBER
+   | obj
+   | array
+   | 'true'
+   | 'false'
+   | 'null'
+   ;
+
+
+STRING
+   : '"' (ESC | ~ ["\\])* '"'
+   ;
+fragment ESC
+   : '\\' (["\\/bfnrt] | UNICODE)
+   ;
+fragment UNICODE
+   : 'u' HEX HEX HEX HEX
+   ;
+fragment HEX
+   : [0-9a-fA-F]
+   ;
+NUMBER
+   : '-'? INT '.' [0-9] + EXP? | '-'? INT EXP | '-'? INT
+   ;
+fragment INT
+   : '0' | [1-9] [0-9]*
+   ;
+// no leading zeros
+fragment EXP
+   : [Ee] [+\-]? INT
+   ;
+// \- since - means "range" inside [...]
+WS
+   : [ \t\n\r] + -> skip
+   ;
 ```
+![](images/Instalacionunix6.png)
 
 Ahora corre la herramienta ANTLR:
 
 ```
 $ cd /tmp
-$ antlr4 Hello.g4
-$ javac Hello*.java
+$ antlr4 JSON.g4
+$ javac JSON*.java
 ```
-![](images/Instalacionunix3.png)
+![](images/Instalacionunix3.1.png)
+
 Ahora lo probaremos:
 
 ```
-$ grun Hello r -tree
-hello parrt
+$ grun JSON json -tree
+{
+    "glossary": {
+        "title": "example glossary",
+		"GlossDiv": {
+            "title": "S",
+			"GlossList": {
+                "GlossEntry": {
+                    "ID": "SGML",
+					"SortAs": "SGML",
+					"GlossTerm": "Standard Generalized Markup Language",
+					"Acronym": "SGML",
+					"Abbrev": "ISO 8879:1986",
+					"GlossDef": {
+                        "para": "A meta-markup language, used to create markup languages such as DocBook.",
+						"GlossSeeAlso": ["GML", "XML"]
+                    },
+					"GlossSee": "markup"
+                }
+            }
+        }
+    }
+}
 ^D
 (r hello parrt)
 (That ^D means EOF on unix; it's ^Z in Windows.) The -tree option prints the parse tree in LISP notation.
 It's nicer to look at parse trees visually.
-$ grun Hello r -gui
-hello parrt
+$ grun JSON json r -gui
+{
+    "glossary": {
+        "title": "example glossary",
+		"GlossDiv": {
+            "title": "S",
+			"GlossList": {
+                "GlossEntry": {
+                    "ID": "SGML",
+					"SortAs": "SGML",
+					"GlossTerm": "Standard Generalized Markup Language",
+					"Acronym": "SGML",
+					"Abbrev": "ISO 8879:1986",
+					"GlossDef": {
+                        "para": "A meta-markup language, used to create markup languages such as DocBook.",
+						"GlossSeeAlso": ["GML", "XML"]
+                    },
+					"GlossSee": "markup"
+                }
+            }
+        }
+    }
+}
 ^D
 ```
-![](images/Instalacionunix5.png)
+![](images/Instalacionunix5.1.png)
+
+![](images/Instalacionunix5.2.png)
 Esto genera una ventana que muestra la regla `r` unida a la palabra clave `hello` seguida del identificador `parrt`.
 
-![](images/Instalacionunix4.png)
+![](images/Instalacionunix4.1.png)
 
 ## Libro con codigo fuente
 
