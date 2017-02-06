@@ -282,6 +282,7 @@ $ grun JSON json r -gui
 Esto genera una ventana que muestra la regla `JSON`y sus valores, se puede observar el arbol de parseo para el JSON ingresado con todos los identificadores correspondientes.
 
 ![](images/Instalacionunix4.1.png)
+
 ## Conclusiones y recomendaciones
 
 * En este trabajo, presentamos ANTLR, el generador de parser de PCCTS. En primer lugar, ANTLR es una herramienta práctica, programable-amistosa con muchas características convenientes. ANTLR integra la especificación del análisis léxico y sintáctico, soporta la notación ampliada de BNF, puede construir automáticamente sintaxis de árboles abstractos, informa y recupera de errores de sintaxis automáticamente, y proporciona flexibilidad semántica significativa. ANTLR genera analizadores de descensos recursivos rápidos, compactos y legibles en C o C ++ que son fáciles de integrar con otras aplicaciones.
