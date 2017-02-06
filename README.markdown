@@ -42,7 +42,6 @@ $ alias grun='java org.antlr.v4.gui.TestRig'
 
 ### WINDOWS
 
-(*Thanks to Graham Wideman*)
 
 0. Instalar Java SE Development Kit 8u121(version 1.6 o superior) desde [http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
   * Considerar que el destino de ubicación(Drive) debe ser el mismo que el del sistema operativo.
@@ -280,9 +279,15 @@ $ grun JSON json r -gui
 ![](images/Instalacionunix5.1.png)
 
 ![](images/Instalacionunix5.2.png)
-Esto genera una ventana que muestra la regla `r` unida a la palabra clave `hello` seguida del identificador `parrt`.
+Esto genera una ventana que muestra la regla `JSON`y sus valores, se puede observar el arbol de parseo para el JSON ingresado con todos los identificadores correspondientes.
 
 ![](images/Instalacionunix4.1.png)
+## Conclusiones y recomendaciones
+
+* En este trabajo, presentamos ANTLR, el generador de parser de PCCTS. En primer lugar, ANTLR es una herramienta práctica, programable-amistosa con muchas características convenientes. ANTLR integra la especificación del análisis léxico y sintáctico, soporta la notación ampliada de BNF, puede construir automáticamente sintaxis de árboles abstractos, informa y recupera de errores de sintaxis automáticamente, y proporciona flexibilidad semántica significativa. ANTLR genera analizadores de descensos recursivos rápidos, compactos y legibles en C o C ++ que son fáciles de integrar con otras aplicaciones.
+* ANTLR utiliza una nueva estrategia de análisis que permite desarrollar gramáticas naturales y fáciles de leer para lenguajes difíciles como C ++.
+Los predicados permiten la semántica arbitraria y la información sintáctica para dirigir el análisis.
+* ANTLR es un software gratuito de dominio público.
 
 ## Libro con codigo fuente
 
@@ -293,3 +298,8 @@ El libro posee muchos ejemplos que podrian ser utiles. Puedes descargarlos grati
 Tambien, en este repositorio de github hay una larga colección de gramaticas para la version 4:
 
 [https://github.com/antlr/grammars-v4](https://github.com/antlr/grammars-v4)
+
+## Autores de la Guía
+
+Andrés Asimbaya [github-ANDRES2527](https://github.com/ANDRES2527) <br>
+Patricio Perez [github-elludenf](https://github.com/Elludenf)
