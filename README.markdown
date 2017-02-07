@@ -51,14 +51,16 @@ Guardar en el directorio para librerias de terceros, como: `C:\Javalib`
   * Ir a  "Cuentas de Usuario"> Cambiar las variables de entorno.
   ![](images/antlr2.PNG)
   * Crear o añadir una variable `PATH` para antlr `C:\Javalib\antlr-4.6.complete.jar` y para el jdk `C:\Program Files\jdk.1.8.0_111\bin`
+
 ![](images/antlr3.PNG)
 
 3. Crear atajos para los comandos de las herramientas ATNRL y TestRig, usandos archivos batch o comandos doskey:
+
   * Archivo batch con el siguiente contenido (en el mismo direcorio agregado de 'PATH) `antlr4.bat`
 ```
 java org.antlr.v4.Tool %*
 ```
- Archivo batch con el siguiente contenido (en el mismo direcorio agregado de 'PATH) `grun.bat`
+  * Archivo batch con el siguiente contenido (en el mismo direcorio agregado de 'PATH) `grun.bat`
 ```
 java org.antlr.v4.gui.TestRig %*
 ```
@@ -85,6 +87,7 @@ ANTLR Parser Generator Version 4.6
 ...
 ```
 ![](images/antlr5.PNG)
+
 * En la misma  carpeta `CLASSPATH` colocar la siguiente gramática dentro de un archivo `Hello.g4`:
 
 ```
@@ -117,6 +120,7 @@ hello parrt
 ^Z
 ```
 ![](images/antlr6.PNG)
+
 Esto genera una ventana que muestra la regla `r` unida a la palabra clave `hello` seguida del identificador `parrt`.
 
 ![](images/antlr7.PNG)
